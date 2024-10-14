@@ -130,7 +130,6 @@ namespace Library_Management_System
                     book.Author = newAuthor;
                     book.CopiesAvailable = newCopiesAvailable;
                     book.FineAmount = newFineAmount;
-
                     Console.WriteLine($"Admin {user.Name} updated the book '{book.Title}' (ISBN: {isbn}).");
                 }
                 else
