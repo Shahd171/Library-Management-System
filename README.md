@@ -1,12 +1,12 @@
-# Library Management System
+# Library Management System 📚
 
-A simple Library Management System built using C# that allows users (members and admins) to manage book loans, returns, fines, and more. Admins can add, remove, and update books in the library, while members can borrow and return books.
+A **simple Library Management System** built using **C#** to manage book loans, returns, fines, and more. This project demonstrates Object-Oriented Programming (OOP) concepts such as inheritance, abstraction, and polymorphism while implementing real-world functionalities for both **admin** and **member** roles.
 
-## Features
+## Features 🎯
 
 ### Admin Features:
-- Add, remove, and update books.
-- Display all books in the library.
+- Add, remove, and update books in the library.
+- View all books available in the library.
 
 ### Member Features:
 - Borrow and return books.
@@ -15,35 +15,28 @@ A simple Library Management System built using C# that allows users (members and
 
 ### Library Features:
 - Display available books.
-- Track books' copies and fine amounts.
-- Support for overdue fines.
+- Track book copies and overdue fines.
+- Support overdue fine payments.
 
-## Classes and Key Concepts
+## Classes & Key Concepts 🧠
+- **User**: Base class for all users (Admin and Member). Manages user info, borrowed books, and fines.
+- **Admin**: Inherits from `User`. Manages books (add, update, remove).
+- **Member**: Inherits from `User`. Can borrow and return books, pay fines, and view borrowed books.
+- **Library**: Manages book operations and keeps track of borrowing, returning, and fines.
+- **Book**: Represents a book (ISBN, title, author, available copies).
+- **LibraryAccount**: Holds user account details and account creation date.
 
-### `User`
-- Base class for all users (Admin and Member).
-- Manages user information, borrowed books, and fines.
+## Technologies Used 🛠️
+- C#
+- .NET Core / .NET Framework
+- Object-Oriented Programming (OOP)
 
-### `Admin`
-- Inherits from `User`.
-- Has additional capabilities for managing books in the library.
+## How to Run 🚀
+1. Install .NET Core or .NET Framework.
+2. Open the project in your preferred C# IDE (e.g., Visual Studio, Visual Studio Code).
+3. Build and run the project.
 
-### `Member`
-- Inherits from `User`.
-- Can borrow and return books, pay fines, and view borrowed books.
-
-### `Library`
-- Manages books in the library.
-- Handles book borrowing, returning, and updating operations.
-
-### `Book`
-- Represents a book in the library.
-- Contains details like ISBN, title, author, and copies available.
-
-### `LibraryAccount`
-- Represents a user account containing user details and account creation date.
-
-## Requirements
+## Requirements ✅
 - .NET Core or .NET Framework (for C#)
-- A C# IDE (like Visual Studio or Visual Studio Code)
+- C# IDE (Visual Studio / VS Code)
 
