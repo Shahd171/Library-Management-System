@@ -40,9 +40,6 @@ A simple Library Management System built using C# that allows users (members and
 - Represents a book in the library.
 - Contains details like ISBN, title, author, and copies available.
 
-### `Publisher`
-- Represents the publisher who publishes books.
-
 ### `LibraryAccount`
 - Represents a user account containing user details and account creation date.
 
