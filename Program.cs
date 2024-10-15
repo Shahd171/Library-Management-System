@@ -20,8 +20,7 @@ namespace Library_Management_System
                 Console.WriteLine("1. Login");
                 Console.WriteLine("2. Register");
                 Console.WriteLine("3. Show Library Books");
-                Console.WriteLine("4. Display User Info (Admin Only)");
-                Console.WriteLine("5. Exit");
+                Console.WriteLine("4. Exit");
                 Console.Write("Choose an option: ");
 
                 string choice = Console.ReadLine();
@@ -38,9 +37,6 @@ namespace Library_Management_System
                         ShowLibraryBooks(library);
                         break;
                     case "4":
-                        DisplayUserInfo(accounts);
-                        break;
-                    case "5":
                         Console.WriteLine("Thank you for using the Library Management System. Goodbye!");
                         return;
                     default:
@@ -61,7 +57,7 @@ namespace Library_Management_System
 
             if (account != null)
             {
-                account.User.DisplayMenu(library);
+                account.User.DisplayMenu(library, accounts);
             }
             else
             {
@@ -73,8 +69,22 @@ namespace Library_Management_System
         {
             Console.Write("Enter your name: ");
             string name = Console.ReadLine();
-            Console.Write("Enter your ID: ");
-            string id = Console.ReadLine();
+            string id;
+            while (true)
+            {
+                Console.Write("Enter your ID: ");
+                id = Console.ReadLine();
+
+                // Check if ID is unique
+                if (accounts.Any(a => a.User.Id == id))
+                {
+                    Console.WriteLine("ID already exists. Please enter a different ID.");
+                }
+                else
+                {
+                    break;  // ID is unique
+                }
+            }
             Console.Write("Are you an admin? (Y/N): ");
             string isAdmin = Console.ReadLine().ToUpper();
 
@@ -112,36 +122,6 @@ namespace Library_Management_System
 
             Console.WriteLine("\nPress any key to return to the main menu...");
             Console.ReadKey();
-        }
-
-        static void DisplayUserInfo(List<LibraryAccount> accounts)
-        {
-            if (!AuthenticateAdmin(accounts))
-            {
-                Console.WriteLine("Access denied. Only admins can view user information.");
-                return;
-            }
-
-            Console.WriteLine("\nUser Information:");
-            foreach (var account in accounts)
-            {
-                account.DisplayAccountInfo();
-
-            }
-
-            Console.WriteLine("Press any key to return to the main menu...");
-            Console.ReadKey();
-        }
-
-        static bool AuthenticateAdmin(List<LibraryAccount> accounts)
-        {
-            Console.Write("Enter admin name: ");
-            string name = Console.ReadLine();
-            Console.Write("Enter admin ID: ");
-            string id = Console.ReadLine();
-
-            LibraryAccount adminAccount = accounts.Find(a => a.User.Name == name && a.User.Id == id && a.User is Admin);
-            return adminAccount != null;
         }
     }
 }

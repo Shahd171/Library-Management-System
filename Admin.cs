@@ -50,7 +50,7 @@ public class Admin : User
         Console.WriteLine($"{Name} (Admin) does not handle fines.");
     }
 
-    public override void DisplayMenu(Library library)
+    public override void DisplayMenu(Library library, List<LibraryAccount> accounts)
     {
         while (true)
         {
@@ -59,8 +59,8 @@ public class Admin : User
             Console.WriteLine("2. Remove Book");
             Console.WriteLine("3. Update Book");
             Console.WriteLine("4. Display All Books");
-
-            Console.WriteLine("5. Logout");
+            Console.WriteLine("5. Show User Data");
+            Console.WriteLine("6. Logout");
             Console.Write("Choose an option: ");
 
             string choice = Console.ReadLine();
@@ -80,11 +80,25 @@ public class Admin : User
                     library.DisplayAllBooks();
                     break;
                 case "5":
+                    DisplayUserInfo(accounts);
+                    break;
+                case "6":
                     return;
                 default:
                     Console.WriteLine("Invalid option. Please try again.");
                     break;
             }
         }
+    }
+
+    public void DisplayUserInfo(List<LibraryAccount> accounts)
+    {
+        Console.WriteLine("\nUser Information:");
+        foreach (var account in accounts)
+        {
+            account.DisplayAccountInfo();
+        }
+        Console.WriteLine("Press any key to return to the menu...");
+        Console.ReadKey();
     }
 }

@@ -69,7 +69,7 @@ public class Member : User
         }
     }
 
-    public override void DisplayMenu(Library library)
+    public override void DisplayMenu(Library library, List<LibraryAccount> accounts)
     {
         while (true)
         {

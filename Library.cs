@@ -39,31 +39,6 @@ namespace Library_Management_System
             }
         }
 
-        public void BorrowBookByTitle(User user, string title)
-        {
-            Book book = books.Find(b => b.Title == title);
-            if (book != null)
-            {
-                user.Borrow(book);
-            }
-            else
-            {
-                Console.WriteLine("Book not found.");
-            }
-        }
-
-        public void ReturnBook(User user, string isbn)
-        {
-            Book book = FindBookByISBN(isbn);
-            if (book != null)
-            {
-                user.Return(book);
-            }
-            else
-            {
-                Console.WriteLine("Book not found.");
-            }
-        }
         public void DisplayAllBooks()
         {
             if (books.Count > 0)

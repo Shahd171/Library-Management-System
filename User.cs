@@ -98,7 +98,7 @@ namespace Library_Management_System
             }
         }
 
-        public abstract void DisplayMenu(Library library);
+        public abstract void DisplayMenu(Library library, List<LibraryAccount> accounts);
 
 
     }
