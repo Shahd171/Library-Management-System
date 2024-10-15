@@ -7,6 +7,7 @@ A **simple Library Management System** built using **C#** to manage book loans, 
 ### Admin Features:
 - Add, remove, and update books in the library.
 - View all books available in the library.
+- View all users' information (name, borrowed books, and fines).
 
 ### Member Features:
 - Borrow and return books.
